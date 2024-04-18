@@ -1,0 +1,196 @@
+AWS :
+
+In interview someone asks you - Are you using the ROOT User?
+
+We don't use ROOT User as a devopps enginer there is devopps engineering team for each member when we created the AWS Account we have created IAM creator for devopps engineer & we granted access for the devopps engineer.
+
+For example - Creating user,accessing for most of the services.
+
+
+EC2 - Elastic Cloud Compute
+
+
+
+You are asking AWS to provide virtual server's.
+
+
+
+_____________________________________________________________________________________________________________
+
+
+Command:
+ AWS EC2 Instance login command:
+
+Please keep .pem file where you have the permission (cd downloads do not keep it in your PS ID location because we dont have permission in office laptop):
+
+ ssh -i aws_login.pem ubuntu@13.210.23.17
+
+ ssh -i aws_login.pem ubuntu@13.236.91.140
+
+ssh -i .\aws-vpc-login.pem ubuntu@54.198.154.160
+
+To Log In into Root -
+
+sudo su -
+
+To update the package use below command:
+
+sudo apt update
+
+
+TO install Java on ubuntu - 
+apt install openjdk-11-jdk
+
+Check java version- 
+java --version
+
+
+Install Jenkins on ubuntu -
+
+sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian/jenkins.io-2023.key
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt-get update
+sudo apt-get install jenkins
+
+status of jenkins command:
+
+systemctl status jenkins
+
+To check Jenkin installed it or not :
+
+http://13.210.23.17:8080/
+
+
+http://13.210.23.17:8080/login?from=%2F
+
+To get Jenkins password the popup will show on browser where the location is mentioned on the popup as below :
+
+/var/lib/jenkins/secrets/initialAdminPassword
+
+use cat /var/lib/jenkins/secrets/initialAdminPassword and u will get the jenkin below password
+cc88af8cc4cd43768cc4e5a02ac57901
+
+----------------------------------------------------------------------------------------------
+
+
+In security -> in bound rule ->
+
+ssh must be there otherwise u will not be able to login or access ssh 
+
+-----------------------------------------------------------------------------------------------
+
+To check python is available on server :
+
+python3
+
+python3 -m http http.server 8000
+
+
+------------------------------------------------------------------------------------------------
+
+Secure Copy
+ ssh -i aws-bastian-key.pem ubuntu@13.236.153.245
+ssh -i aws_login.pem ubuntu@13.236.153.245
+
+scp -i /Users/10707122/Downloads/aws-bastian-key.pem /Users/10707122/Downloads/aws-bastian-key.pem ubuntu@13.236.153.245:/home/ubuntu
+
+
+scp -i /Users/10707122/Downloads/aws-bastian-key.pem /Users/10707122/Downloads/aws_login.pem ubuntu@13.236.153.245:/home/ubuntu
+
+
+scp -i /Users/10707122/Downloads/aws-bastian-key.pem /Users/10707122/Downloads/srj.txt ubuntu@13.236.153.245:/home/ubuntu
+
+
+scp -i /Users/10707122/Downloads/aws-bastian-key.pem  /Users/10707122/Downloads/aws-bastian-key.pem ubuntu@13.236.153.245:/home/ubuntu
+
+
+scp -i /Users/10707122/Downloads/aws-bastian-key.pem /Users/10707122/Downloads/aws_login.pem ubuntu@10.0.22.187:/home/ubuntu
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+SCP Copy Fresh :
+
+Copy Public IP from Bastian IP Host :
+
+scp -i /Users/10707122/Downloads/aws-bastian-key.pem /Users/10707122/Downloads/aws-bastian-key.pem ubuntu@3.106.204.30:/home/ubuntu
+
+
+
+ssh -i .\aws-bastian-key.pem ubuntu@3.106.204.30
+
+
+
+#ssh -i .\aws-bastian-key.pem ubuntu@10.0.155.86
+
+
+Change the permission of private key for below bastian key 
+chmod 600 aws-bastian-key.pem
+ssh -i aws-bastian-key.pem ubuntu@10.0.139.23
+Create one file in python using below command:
+
+vim index.html
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>HTML Links</h2>
+<p>HTML links are defined with the a tag:</p>
+
+<a href="Welcome to AWS...">This is a link</a>
+
+</body>
+</html>
+
+save the file using below command:
+python3 -m http.server 8000
+
+
+
+Tomcat installation on ubuntu:
+apt install tomcat9 (if u r not with root user try to add sudo before apt)
+
+
+
+/home/ubuntu
+
+
+Tomcat :
+
+cd /var/lib/tomcat9
+
+ll
+
+
+
+
+To Start tomcat use below commands:
+
+Systemctl start tomcat9
+
+And check whether tomcat is installed or not  using below command:
+
+Systemctl status tomcat9
+
+
+ps -ef|grep cata
+
+
+
+Root user permission command:
+chown root.root jenkins.war
+
+
+
+/var/lib/tomcat9/webapps/jenkins
+
+
+chmod g+w /var/lib/tomcat9
+
+
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
